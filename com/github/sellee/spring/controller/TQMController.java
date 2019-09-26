@@ -15,8 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.github.sellee.spring.mapper.TQMMapper;
-import com.lgchem.cm.common.service.CommonService;
-import com.lgchem.cm.common.util.JSONUtils;
+
 
 @Controller
 public class TQMController {
