@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN"
+                                     "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false">
+
+    <!--  console appender -->
+    <appender name="console" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %5p [%c] %m%n" />
+        </layout>
+    </appender>
+
+    <!-- spring logging level  -->
+    <logger name="org.springframework" additivity="false">
+        <level value="INFO" />
+        <appender-ref ref="console" />
+    </logger>
+
+    <!-- Simple Exception Handler Logger
+        (servlet-context.xml내에 SimpleMappingExceptionResolver에서 사용) -->
+    <logger name="errorLogger" additivity="false">
+        <level value="ERROR" />
+        <appender-ref ref="console" />
+    </logger>
+
+    <logger name="devonframe.sample.office.function.log.controller" additivity="false">
+        <level value="DEBUG" />
+        <appender-ref ref="console" />
+    </logger>
+
+    <!-- logging level -->
+    <root>
+        <level value="INFO" />
+        <appender-ref ref="console" />
+    </root>
+
+
+<!-- ===================================================================  -->
+
+    <!-- sql logging level -->
+    <!-- DEBUG로 설정되어 있을때만 실행된 SQL이 출력되며 ERROR로 설정시에는 SQL이 출력되지 않는다. -->
+    <logger name="java.sql" additivity="false">
+        <level value="ERROR" />
+        <appender-ref ref="console" />
+    </logger>
+    
+ <!-- SQL logger -->
+    <logger name="jdbc.audit" additivity="false">
+        <level value="off" />
+        <appender-ref ref="console" />
+    </logger>
+      
+    <logger name="jdbc.resultset" additivity="false">
+        <level value="off" />
+        <appender-ref ref="console" />
+    </logger>
+     
+    <logger name="jdbc.sqlonly" additivity="false">
+        <level value="info" />
+        <appender-ref ref="console" />
+    </logger>
+ 
+    <logger name="jdbc.sqltiming" additivity="false">
+        <level value="off" />
+        <appender-ref ref="console" /> 
+    </logger>
+
+    <logger name="jdbc.connection" additivity="false">
+        <level value="off" />
+        <appender-ref ref="console" />
+    </logger>
+
+    <logger name="XXorg.springframework.beans.factory.xml.XmlBeanDefinitionReader" additivity="false">
+        <level value="off" />
+        <appender-ref ref="console" />
+    </logger>
+    
+    <logger name="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" additivity="false">
+        <level value="off" />
+        <appender-ref ref="console" />
+    </logger>
+
+    <logger name="jdbc.resultsettable" additivity="false">
+        <level value="info" />
+        <appender-ref ref="console" />
+    </logger>
+                
+</log4j:configuration>
